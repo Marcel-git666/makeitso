@@ -11,6 +11,7 @@ struct RemindersListView: View {
     
     @StateObject private var viewModel = RemindersListViewModel()
     @State private var isAddReminderDialogPresented = false
+    @State private var editableReminder: Reminder? = nil
     
     private func presentAddReminderView() {
         isAddReminderDialogPresented.toggle()
@@ -19,6 +20,18 @@ struct RemindersListView: View {
     var body: some View {
         List($viewModel.reminders) { $reminder in
             RemindersListRowView(reminder: $reminder)
+                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                    Button(role: .destructive, action: { viewModel.deleteReminder(reminder) }) {
+                        Image(systemName: "trash")
+                    }
+                    .tint(Color(UIColor.systemRed))
+                }
+                .onChange(of: reminder.isCompleted) { newValue in
+                    viewModel.setCompleted(reminder, isCompleted: newValue)
+                }
+                .onTapGesture {
+                    editableReminder = reminder
+                }
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
@@ -32,8 +45,13 @@ struct RemindersListView: View {
             }
         }
         .sheet(isPresented: $isAddReminderDialogPresented) {
-            AddReminderView { reminder in
+            EditReminderDetailsView { reminder in
                 viewModel.addReminder(reminder)
+            }
+        }
+        .sheet(item: $editableReminder) { reminder in
+            EditReminderDetailsView(mode: .edit, reminder: reminder) { reminder in
+                viewModel.updateReminder(reminder)
             }
         }
         .tint(.mint)
@@ -46,3 +64,4 @@ struct RemindersListView: View {
             .navigationTitle("Reminders")
     }
 }
+
