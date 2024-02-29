@@ -28,8 +28,7 @@ class RemindersListViewModel: ObservableObject {
   var errorMessage: String?
 
   // MARK: - Dependencies
-  @Injected(\.remindersRepository)
-  private var remindersRepository: RemindersRepository
+  @Injected(\.remindersRepository) private var remindersRepository: RemindersRepository
 
   init() {
     remindersRepository

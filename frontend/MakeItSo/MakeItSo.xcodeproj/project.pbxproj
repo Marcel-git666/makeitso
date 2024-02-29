@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1FBD842B2B9089BD00B241C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD842A2B9089BD00B241C0 /* GoogleService-Info.plist */; };
+		1FE7A62A2B90B002003233CA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7A6292B90B002003233CA /* AuthenticationService.swift */; };
+		1FE7A62C2B90B525003233CA /* AuthenticationService+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7A62B2B90B525003233CA /* AuthenticationService+Injection.swift */; };
+		1FE7A62F2B90E7F2003233CA /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7A62E2B90E7F2003233CA /* CryptoUtils.swift */; };
 		881D1D3B2A20F0B900D9B8B8 /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D1D3A2A20F0B900D9B8B8 /* GoogleSignInButton.swift */; };
 		881D1D3D2A20F0D700D9B8B8 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D1D3C2A20F0D700D9B8B8 /* UserProfileView.swift */; };
 		881D1D3F2A20F0F600D9B8B8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D1D3E2A20F0F600D9B8B8 /* UserProfileViewModel.swift */; };
@@ -39,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		1FBD842A2B9089BD00B241C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1FE7A6292B90B002003233CA /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		1FE7A62B2B90B525003233CA /* AuthenticationService+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationService+Injection.swift"; sourceTree = "<group>"; };
+		1FE7A62D2B90D305003233CA /* MakeItSo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MakeItSo.entitlements; sourceTree = "<group>"; };
+		1FE7A62E2B90E7F2003233CA /* CryptoUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
 		881D1D3A2A20F0B900D9B8B8 /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
 		881D1D3C2A20F0D700D9B8B8 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		881D1D3E2A20F0F600D9B8B8 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FE7A6302B90E7FD003233CA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1FE7A62E2B90E7F2003233CA /* CryptoUtils.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		881D1D352A20EFD900D9B8B8 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +106,7 @@
 		881D1D362A20F06300D9B8B8 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				1FE7A6302B90E7FD003233CA /* Utilities */,
 				881D1D372A20F07100D9B8B8 /* Services */,
 				881D1D382A20F07C00D9B8B8 /* ViewModels */,
 				881D1D392A20F08600D9B8B8 /* Views */,
@@ -101,6 +117,8 @@
 		881D1D372A20F07100D9B8B8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1FE7A6292B90B002003233CA /* AuthenticationService.swift */,
+				1FE7A62B2B90B525003233CA /* AuthenticationService+Injection.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,6 +188,7 @@
 		8842941129AFEEA8002B16B9 /* MakeItSo */ = {
 			isa = PBXGroup;
 			children = (
+				1FE7A62D2B90D305003233CA /* MakeItSo.entitlements */,
 				886FAA6C2A127422004ACF43 /* Features */,
 				8842941229AFEEA8002B16B9 /* MakeItSoApp.swift */,
 				1FBD842A2B9089BD00B241C0 /* GoogleService-Info.plist */,
@@ -378,6 +397,7 @@
 				8883F1812A20BBAB00DE7EC2 /* Repositories+Injection.swift in Sources */,
 				881D1D3D2A20F0D700D9B8B8 /* UserProfileView.swift in Sources */,
 				88AE77122A138B0B00C51000 /* ReminderToggleStyle.swift in Sources */,
+				1FE7A62F2B90E7F2003233CA /* CryptoUtils.swift in Sources */,
 				881D1D452A20F20900D9B8B8 /* SignupView.swift in Sources */,
 				881D1D472A20F22700D9B8B8 /* AuthenticationView.swift in Sources */,
 				8864E1722A1CD5CD00BE28E2 /* RemindersRepository.swift in Sources */,
@@ -385,6 +405,8 @@
 				887D19282A137D500034829D /* RemindersListRowView.swift in Sources */,
 				881D1D4D2A20F29B00D9B8B8 /* SettingsViewModel.swift in Sources */,
 				881D1D4F2A20F2B600D9B8B8 /* SettingsView.swift in Sources */,
+				1FE7A62A2B90B002003233CA /* AuthenticationService.swift in Sources */,
+				1FE7A62C2B90B525003233CA /* AuthenticationService+Injection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MakeItSo/MakeItSo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MakeItSo/Preview Content\"";
@@ -540,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MakeItSo/MakeItSo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MakeItSo/Preview Content\"";

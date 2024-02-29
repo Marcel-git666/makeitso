@@ -120,14 +120,18 @@ struct LoginView: View {
         // sign in with Google
       }
 
-      SignInWithAppleButton(.signIn) { request in
-        // handle sign in requst
-      } onCompletion: { result in
-        // handle completion
-      }
-      .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
-      .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50)
-      .cornerRadius(8)
+        SignInWithAppleButton(.signIn) { request in
+            viewModel.handleSignInWithAppleRequest(request)
+        } onCompletion: { result in
+            Task {
+                if await viewModel.handleSignInWithAppleCompletion(result) {
+                    dismiss()
+                }
+            }
+        }
+        .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
+        .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50)
+        .cornerRadius(8)
 
       Button(action: {
         withAnimation {
